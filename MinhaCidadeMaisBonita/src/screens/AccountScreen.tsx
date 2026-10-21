@@ -5,6 +5,7 @@ import { ScreenContainer } from "../components/ScreenContainer";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../services/supabase";
 import { colors } from "../theme";
+
 export function AccountScreen({
   onBack,
   onDeleted,
@@ -18,6 +19,7 @@ export function AccountScreen({
     if (error) return Alert.alert("Falha", error.message);
     onDeleted();
   }
+
   return (
     <View style={s.page}>
       <AppHeader title="Minha conta" onBack={onBack} />
@@ -43,7 +45,8 @@ export function AccountScreen({
       </ScreenContainer>
     </View>
   );
-}
+};
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   email: {

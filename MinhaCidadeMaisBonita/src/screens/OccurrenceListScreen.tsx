@@ -4,6 +4,7 @@ import { EmptyState } from "../components/EmptyState";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { colors } from "../theme";
 import { UrbanOccurrence } from "../types";
+
 export function OccurrenceListScreen({
   title,
   items,
@@ -48,7 +49,8 @@ export function OccurrenceListScreen({
       </ScreenContainer>
     </View>
   );
-}
+};
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   card: {

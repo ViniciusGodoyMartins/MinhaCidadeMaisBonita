@@ -19,6 +19,7 @@ import { getOccurrenceLocation } from "../services/device";
 import { createOccurrence } from "../services/occurrences";
 import { colors } from "../theme";
 import { Category, CitySelection } from "../types";
+
 const categories: Category[] = [
   "Via pública",
   "Iluminação",
@@ -30,6 +31,7 @@ const categories: Category[] = [
   "Equipamento público",
   "Outro",
 ];
+
 export function ReportScreen({
   city,
   onBack,
@@ -58,15 +60,19 @@ export function ReportScreen({
     const sub = Accelerometer.addListener(({ x, y, z }) =>
       setMagnitude(Math.sqrt(x * x + y * y + z * z)),
     );
+
     return () => sub.remove();
   }, []);
+
   async function openCamera() {
     if (!permission?.granted) {
       const value = await requestPermission();
       if (!value.granted) return Alert.alert("Câmera não autorizada.");
-    }
+    };
+
     setCameraOpen(true);
   }
+
   async function take() {
     const result = await camera.current?.takePictureAsync({ quality: 0.72 });
     if (result) {
@@ -74,6 +80,7 @@ export function ReportScreen({
       setCameraOpen(false);
     }
   }
+  
   async function save() {
     if (
       !photo ||
@@ -82,6 +89,7 @@ export function ReportScreen({
       description.trim().length < 10
     )
       return Alert.alert("Inclua foto, localização, título e descrição.");
+
     setBusy(true);
     setProgress("Preparando a fotografia...");
     try {
@@ -121,6 +129,7 @@ export function ReportScreen({
       setProgress("");
     }
   }
+
   return (
     <View style={s.page}>
       <AppHeader title="Novo relato" onBack={onBack} />

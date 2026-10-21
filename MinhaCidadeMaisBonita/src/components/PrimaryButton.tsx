@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import { colors } from "../theme";
+
 export function PrimaryButton({
   label,
   onPress,
@@ -27,7 +28,8 @@ export function PrimaryButton({
       </Text>
     </Pressable>
   );
-}
+};
+
 const s = StyleSheet.create({
   button: {
     minHeight: 52,

@@ -2,6 +2,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, shadow } from "../theme";
 import { CitySelection, ScreenName } from "../types";
+
 export function HomeScreen({
   city,
   active,
@@ -58,7 +59,8 @@ export function HomeScreen({
       </View>
     </ScrollView>
   );
-}
+};
+
 function Action({ title, onPress }: { title: string; onPress: () => void }) {
   return (
     <Pressable style={s.action} onPress={onPress}>
@@ -66,7 +68,8 @@ function Action({ title, onPress }: { title: string; onPress: () => void }) {
       <Text style={s.arrow}>›</Text>
     </Pressable>
   );
-}
+};
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   hero: { backgroundColor: colors.primary },

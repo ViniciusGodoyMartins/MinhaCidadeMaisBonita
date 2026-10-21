@@ -12,7 +12,9 @@ export type ScreenName =
   | "ACCOUNT"
   | "TERMS"
   | "PRIVACY";
+
 export type AuthMode = "LOGIN" | "SIGNUP";
+
 export type Category =
   | "Via pública"
   | "Iluminação"
@@ -23,11 +25,13 @@ export type Category =
   | "Vegetação"
   | "Equipamento público"
   | "Outro";
+
 export type OccurrenceStatus =
   | "ATIVO"
   | "AINDA_PRESENTE"
   | "RESOLUCAO_INFORMADA"
   | "RESOLVIDO";
+
 export interface CitySelection {
   city: string;
   state: string;
@@ -35,7 +39,8 @@ export interface CitySelection {
   longitude?: number;
   source: "GPS" | "MANUAL";
   confirmedAt: string;
-}
+};
+
 export interface OccurrenceUpdate {
   id: string;
   occurrence_id: string;
@@ -43,7 +48,8 @@ export interface OccurrenceUpdate {
   type: "CRIADO" | Exclude<OccurrenceStatus, "ATIVO">;
   note: string;
   created_at: string;
-}
+};
+
 export interface UrbanOccurrence {
   id: string;
   author_id: string | null;
@@ -66,4 +72,4 @@ export interface UrbanOccurrence {
   created_at: string;
   updated_at: string;
   occurrence_updates?: OccurrenceUpdate[];
-}
+};

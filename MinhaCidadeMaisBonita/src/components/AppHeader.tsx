@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors } from "../theme";
+
 export function AppHeader({
   title,
   subtitle,
@@ -29,7 +30,8 @@ export function AppHeader({
       </View>
     </SafeAreaView>
   );
-}
+};
+
 const s = StyleSheet.create({
   safe: { backgroundColor: colors.primary },
   header: {

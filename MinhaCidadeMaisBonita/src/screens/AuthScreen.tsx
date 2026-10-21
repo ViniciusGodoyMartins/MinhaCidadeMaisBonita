@@ -7,6 +7,7 @@ import { ScreenContainer } from "../components/ScreenContainer";
 import { supabase } from "../services/supabase";
 import { colors } from "../theme";
 import { AuthMode } from "../types";
+
 export function AuthScreen({
   mode,
   onModeChange,
@@ -29,19 +30,25 @@ export function AuthScreen({
   const [password, setPassword] = useState("");
   const [accepted, setAccepted] = useState(false);
   const [busy, setBusy] = useState(false);
+
   async function submit() {
     if (!email.trim() || password.length < 6)
       return Alert.alert("Revise os dados");
+
     if (mode === "SIGNUP" && (!accepted || name.trim().length < 2))
       return Alert.alert("Leia e aceite os documentos.");
+
     setBusy(true);
+
     try {
       if (mode === "LOGIN") {
         const { error } = await supabase.auth.signInWithPassword({
           email: email.trim(),
           password,
         });
+
         if (error) throw error;
+
         onSuccess();
       } else {
         const { error } = await supabase.auth.signUp({
@@ -56,6 +63,7 @@ export function AuthScreen({
           },
         });
         if (error) throw error;
+
         Alert.alert("Confirme seu e-mail");
         onModeChange("LOGIN");
       }
@@ -129,7 +137,8 @@ export function AuthScreen({
       </ScreenContainer>
     </View>
   );
-}
+};
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   card: {

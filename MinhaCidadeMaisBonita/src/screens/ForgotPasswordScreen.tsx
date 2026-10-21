@@ -6,9 +6,11 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { requestPasswordRecovery } from "../services/passwordRecovery";
 import { colors } from "../theme";
+
 export function ForgotPasswordScreen({ onBack }: { onBack: () => void }) {
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState(false);
+
   async function send() {
     setBusy(true);
     try {
@@ -22,7 +24,8 @@ export function ForgotPasswordScreen({ onBack }: { onBack: () => void }) {
     } finally {
       setBusy(false);
     }
-  }
+  };
+
   return (
     <View style={s.page}>
       <AppHeader title="Recuperar conta" onBack={onBack} />
@@ -42,6 +45,7 @@ export function ForgotPasswordScreen({ onBack }: { onBack: () => void }) {
     </View>
   );
 }
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
-});
+});   

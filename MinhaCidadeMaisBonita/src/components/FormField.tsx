@@ -6,6 +6,7 @@ import {
   View,
 } from "react-native";
 import { colors } from "../theme";
+
 export function FormField({
   label,
   multiline,
@@ -21,7 +22,8 @@ export function FormField({
       />
     </View>
   );
-}
+};
+
 const s = StyleSheet.create({
   wrap: { marginBottom: 16 },
   label: { fontWeight: "800", color: colors.text, marginBottom: 8 },

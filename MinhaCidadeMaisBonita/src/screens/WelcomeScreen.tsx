@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { colors } from "../theme";
+
 export function WelcomeScreen({ onContinue }: { onContinue: () => void }) {
   return (
     <SafeAreaView style={s.page}>
@@ -20,11 +21,13 @@ export function WelcomeScreen({ onContinue }: { onContinue: () => void }) {
             Projeto comunitário e educacional. Não substitui canais oficiais.
           </Text>
         </View>
+        
         <PrimaryButton label="Continuar" onPress={onContinue} />
       </View>
     </SafeAreaView>
   );
-}
+};
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.primary },
   content: {

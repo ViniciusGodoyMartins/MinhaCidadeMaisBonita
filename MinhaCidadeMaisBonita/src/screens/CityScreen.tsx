@@ -7,6 +7,7 @@ import { ScreenContainer } from "../components/ScreenContainer";
 import { detectCity } from "../services/device";
 import { colors } from "../theme";
 import { CitySelection } from "../types";
+
 export function CityScreen({
   initial,
   onBack,
@@ -20,9 +21,10 @@ export function CityScreen({
   const [state, setState] = useState(initial?.state ?? "");
   async function locate() {
     try {
-      const value = await detectCity();
-      setCity(value.city);
-      setState(value.state);
+      const city = await detectCity();
+
+      setCity(city.city);
+      setState(city.state);
     } catch (error) {
       Alert.alert(
         "Localização",
@@ -30,9 +32,11 @@ export function CityScreen({
       );
     }
   }
+
   function confirm() {
     if (!city.trim() || !state.trim())
       return Alert.alert("Preencha cidade e estado.");
+
     onConfirm({
       city: city.trim(),
       state: state.trim(),
@@ -40,6 +44,7 @@ export function CityScreen({
       confirmedAt: new Date().toISOString(),
     });
   }
+
   return (
     <View style={s.page}>
       <AppHeader title="Confirme sua cidade" onBack={onBack} />
@@ -57,6 +62,7 @@ export function CityScreen({
     </View>
   );
 }
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   icon: { fontSize: 40 },

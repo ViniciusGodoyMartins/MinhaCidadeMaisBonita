@@ -4,6 +4,7 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { colors } from "../theme";
 import { UrbanOccurrence } from "../types";
+
 export function DetailScreen({
   item,
   authenticated,
@@ -27,6 +28,7 @@ export function DetailScreen({
       },
     ]);
   }
+
   return (
     <View style={s.page}>
       <AppHeader title="Detalhes" onBack={onBack} />
@@ -45,6 +47,7 @@ export function DetailScreen({
     </View>
   );
 }
+
 const s = StyleSheet.create({
   page: { flex: 1, backgroundColor: colors.background },
   image: { width: "100%", height: 250, borderRadius: 22, marginBottom: 16 },

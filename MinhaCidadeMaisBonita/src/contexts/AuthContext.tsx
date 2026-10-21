@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { supabase } from "../services/supabase";
+
 interface Value {
   session: Session | null;
   user: User | null;
@@ -14,7 +15,8 @@ interface Value {
   recoveryRequested: boolean;
   clearRecoveryRequest: () => void;
   signOut: () => Promise<void>;
-}
+};
+
 const Context = createContext<Value>({
   session: null,
   user: null,
@@ -23,21 +25,26 @@ const Context = createContext<Value>({
   clearRecoveryRequest: () => undefined,
   signOut: async () => undefined,
 });
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [recoveryRequested, setRecoveryRequested] = useState(false);
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);
       setLoading(false);
     });
+
     const { data } = supabase.auth.onAuthStateChange((event, next) => {
       setSession(next);
       if (event === "PASSWORD_RECOVERY") setRecoveryRequested(true);
     });
+    
     return () => data.subscription.unsubscribe();
   }, []);
+
   return (
     <Context.Provider
       value={{
@@ -54,5 +61,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       {children}
     </Context.Provider>
   );
-}
+};
+
 export const useAuth = () => useContext(Context);

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../theme";
+
 export function EmptyState({ resolved = false }: { resolved?: boolean }) {
   return (
     <View style={s.wrap}>
@@ -16,7 +17,8 @@ export function EmptyState({ resolved = false }: { resolved?: boolean }) {
       </Text>
     </View>
   );
-}
+};
+
 const s = StyleSheet.create({
   wrap: {
     minHeight: 420,
