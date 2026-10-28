@@ -1,0 +1,13 @@
+Arquivo: src/screens/LegalDocumentScreen.tsx
+--- exports:
+6:export function HomeScreen({
+--- primeiras linhas:
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { colors, shadow } from "../theme";
+import { CitySelection, ScreenName } from "../types";
+
+export function HomeScreen({
+  city,
+  active,
+--- App.tsx importa: import { LegalDocumentScreen } from "./src/screens/LegalDocumentScreen";

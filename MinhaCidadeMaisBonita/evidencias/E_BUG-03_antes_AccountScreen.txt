@@ -1,0 +1,3 @@
+--- BUG-03 (AccountScreen.tsx, versao recebida):
+<PrimaryButton label="Sair" onPress={() => void signOut()} />
+(nenhuma navegacao apos signOut: a tela Minha conta permanece aberta com e-mail vazio)

@@ -1,0 +1,6 @@
+
+> minha-cidade-mais-bonita-tutorial@1.0.0 typecheck
+> tsc --noEmit
+
+(exit code 0 - APROVADO)
+ocorrencias {" "} apos correcao: 0

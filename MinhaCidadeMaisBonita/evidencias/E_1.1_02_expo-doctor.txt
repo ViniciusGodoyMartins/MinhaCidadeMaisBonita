@@ -1,0 +1,12 @@
+Running 21 checks on your project...
+Unexpected error while running 'Check Expo config (app.json/ app.config.js) schema' check:
+TypeError: fetch failed
+Error: getaddrinfo ENOTFOUND exp.host
+Warning: Could not fetch bundled native modules
+19/21 checks passed. 2 checks failed. Possible issues detected:
+x Check Expo config (app.json/ app.config.js) schema
+x Validate packages against React Native Directory package metadata
+Directory check failed with unexpected server response
+
+NOTA: as 2 falhas decorrem de falta de acesso a rede (exp.host) no ambiente de validacao.
+Reexecutar "npx expo-doctor" na maquina da dupla, com internet.

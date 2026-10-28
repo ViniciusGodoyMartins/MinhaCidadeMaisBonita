@@ -26,7 +26,12 @@ export function AccountScreen({
       <ScreenContainer center>
         <Text style={s.email}>{user?.email}</Text>
         <View style={s.space}>
-          <PrimaryButton label="Sair" onPress={() => void signOut()} />
+          <PrimaryButton
+            label="Sair"
+            onPress={() => {
+              void signOut().then(onBack);
+            }}
+          />
         </View>
         <PrimaryButton
           label="Excluir e anonimizar conta"

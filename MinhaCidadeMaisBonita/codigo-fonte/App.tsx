@@ -104,7 +104,7 @@ function Application() {
     <View style={s.app}>
       {screen === "WELCOME" && (
         <WelcomeScreen onContinue={() => setScreen(city ? "HOME" : "CITY")} />
-      )}{" "}
+      )}
       {screen === "CITY" && (
         <CityScreen
           initial={city}
@@ -115,7 +115,7 @@ function Application() {
             setScreen("HOME");
           }}
         />
-      )}{" "}
+      )}
       {screen === "HOME" && city && (
         <HomeScreen
           city={city}
@@ -126,7 +126,7 @@ function Application() {
           onNavigate={setScreen}
           onAuth={() => setScreen(user ? "ACCOUNT" : "AUTH")}
         />
-      )}{" "}
+      )}
       {screen === "AUTH" && (
         <AuthScreen
           mode={authMode}
@@ -143,13 +143,13 @@ function Application() {
             setScreen("PRIVACY");
           }}
         />
-      )}{" "}
+      )}
       {screen === "FORGOT_PASSWORD" && (
         <ForgotPasswordScreen onBack={() => setScreen("AUTH")} />
-      )}{" "}
+      )}
       {screen === "RESET_PASSWORD" && (
         <ResetPasswordScreen onFinished={() => setScreen("AUTH")} />
-      )}{" "}
+      )}
       {screen === "TERMS" && (
         <LegalDocumentScreen
           document="TERMS"
@@ -158,7 +158,7 @@ function Application() {
             setScreen("AUTH");
           }}
         />
-      )}{" "}
+      )}
       {screen === "PRIVACY" && (
         <LegalDocumentScreen
           document="PRIVACY"
@@ -167,13 +167,13 @@ function Application() {
             setScreen("AUTH");
           }}
         />
-      )}{" "}
+      )}
       {screen === "ACCOUNT" && (
         <AccountScreen
           onBack={() => setScreen("HOME")}
           onDeleted={() => setScreen("WELCOME")}
         />
-      )}{" "}
+      )}
       {screen === "REPORT" && city && (
         <ReportScreen
           city={city}
@@ -183,7 +183,7 @@ function Application() {
             setScreen("ACTIVE");
           }}
         />
-      )}{" "}
+      )}
       {screen === "ACTIVE" && (
         <OccurrenceListScreen
           title="Problemas ativos"
@@ -194,7 +194,7 @@ function Application() {
             setScreen("DETAIL");
           }}
         />
-      )}{" "}
+      )}
       {screen === "RESOLVED" && (
         <OccurrenceListScreen
           title="Problemas resolvidos"
@@ -206,7 +206,7 @@ function Application() {
             setScreen("DETAIL");
           }}
         />
-      )}{" "}
+      )}
       {screen === "DETAIL" && selected && (
         <DetailScreen
           item={selected}
